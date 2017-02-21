@@ -10,7 +10,7 @@ the Git repository, make a `cd` in your local Git repository
 and launch these commands:
 
 ```sh
-apt-get install --yes devscripts
+sudo apt-get install --no-install-recommends build-essential devscripts fakeroot debhelper lintian
 debuild -b -us -uc --lintian-opts --pedantic -i -I && echo 'Building is OK!'
 ls -l ../stocli*.deb
 ```
