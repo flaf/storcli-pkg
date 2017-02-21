@@ -1,4 +1,4 @@
-# Debian Package Storcli
+# Debian Package Storcli (for amd64 architecture)
 
 `stocli` is a binary to manage LSI MegaRAID controllers.
 
