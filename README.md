@@ -12,7 +12,7 @@ and launch these commands:
 ```sh
 sudo apt-get install --no-install-recommends build-essential devscripts fakeroot debhelper lintian
 debuild -b -us -uc --lintian-opts --pedantic -i -I && echo 'Building is OK!'
-ls -l ../stocli*.deb
+ls -l ../storcli*.deb
 ```
 
 # How to download the `storcli` binary
