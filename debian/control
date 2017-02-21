@@ -1,0 +1,15 @@
+Source: storcli
+Section: non-free/misc
+Priority: optional
+Maintainer: François Lafont <francois.lafont@ac-versailles.fr>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/flaf/storcli-pkg
+
+Package: storcli
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}, gawk
+Description: Binary to manage LSI MegaRAID controllers
+ The LSI StorCLI is the successor of the MegaCLI and allows
+ Command Line Tools to manage and control LSI MegaRAID
+ controllers.

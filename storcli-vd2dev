@@ -1,0 +1,38 @@
+#!/bin/sh
+
+set -e
+
+export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+export LC_ALL='C'
+
+SCRIPT_NAME="${0##*/}"
+VD="$1"
+
+if ! printf '%s\n' "$VD" | grep -qE '^/c[0-9]+/v[0-9]+$'
+then
+    printf 'Sorry, an argument is required and it must have this form:\n' >&2
+    printf '\n'                                                           >&2
+    printf '    %s /c<x>/v<y>\n' "$SCRIPT_NAME"                           >&2
+    printf '\n'                                                           >&2
+    printf 'where <x> and <y> are integers.\n'                            >&2
+    exit 1
+fi
+
+scsi_id=$(storcli "$VD" show all | gawk '/^SCSI NAA Id =/ {print $5}')
+
+if ! printf '%s\n' "$scsi_id" | grep -qE '^[a-f0-9]+$'
+then
+    printf 'Sorry, SCSI ID not found for the virtual drive %s.\n' "$VD" >&2
+    exit 1
+fi
+
+symlink="/dev/disk/by-id/wwn-0x${scsi_id}"
+
+if [ -L "$symlink" ]
+then
+    readlink -f "/dev/disk/by-id/wwn-0x${scsi_id}"
+else
+    printf 'Sorry, no device which matches with the virtual drive %s.\n' "$VD" >&2
+    exit 1
+fi
+

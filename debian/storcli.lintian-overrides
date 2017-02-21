@@ -1,0 +1,13 @@
+storcli binary: binary-without-manpage
+storcli binary: new-package-should-close-itp-bug
+storcli binary: no-upstream-changelog
+storcli binary: embedded-library sbin/storcli: libm
+storcli binary: embedded-library sbin/storcli: ncurses
+storcli binary: statically-linked-binary sbin/storcli
+storcli binary: spelling-error-in-binary sbin/storcli specifed specified
+storcli binary: spelling-error-in-binary sbin/storcli availble available
+storcli binary: spelling-error-in-binary sbin/storcli Sytem System
+storcli binary: spelling-error-in-binary sbin/storcli adress address
+storcli binary: spelling-error-in-binary sbin/storcli transfered transferred
+storcli binary: spelling-error-in-binary sbin/storcli seperated separated
+storcli binary: spelling-error-in-binary sbin/storcli Allows to Allows one to
